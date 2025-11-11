@@ -542,7 +542,7 @@ html{
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    margin-bottom: 95px;
+    margin-bottom: 70px;
 }
 #section_02 .content_wrap .project>.title .item{
     position: relative;
@@ -550,25 +550,25 @@ html{
     height: 85px;
 }
 #section_02 .content_wrap .project>.title .item:nth-child(1){
-    transform: rotate(-13.62deg) translateY(-20px) translateX(0px);
+    transform: rotate(-13.62deg) translateY(30px) translateX(-20px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(2){
-    transform: rotate(0deg) translateY(20px) translateX(10px);
+    transform: rotate(0deg) translateY(60px) translateX(0px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(3){
-    transform: rotate(22.13deg) translateY(-36px) translateX(10px);
+    transform: rotate(22.13deg) translateY(4px) translateX(0px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(4){
-    transform: rotate(5.03deg) translateY(10px) translateX(30px);
+    transform: rotate(5.03deg) translateY(50px) translateX(15px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(5){
-    transform: rotate(-13.77deg) translateY(-37px) translateX(40px);
+    transform: rotate(-13.77deg) translateY(3px) translateX(20px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(6){
-    transform: rotate(16.33deg) translateY(0px) translateX(35px);
+    transform: rotate(16.33deg) translateY(40px) translateX(20px);
 }
 #section_02 .content_wrap .project>.title .item:nth-child(7){
-    transform: rotate(-6.02deg) translateY(10px) translateX(50px);
+    transform: rotate(-6.02deg) translateY(50px) translateX(20px);
 }
 #section_02 .content_wrap .project>.title .item img{
     width: 100%;
@@ -928,7 +928,6 @@ html{
 #section_02 .content .content_wrap #design .title{
     display: flex;
     justify-content: center;
-    margin-bottom: 62.5px;
     width: 607px;
     height: 154.5px;
     margin: 0 auto;
@@ -939,22 +938,22 @@ html{
     height: 85px;
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(1){
-    transform: rotate(13.03deg) translateY(-20px) translateX(0px);
+    transform: rotate(13.03deg) translateY(40px) translateX(-20px);
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(2){
-    transform: rotate(-11.57deg) translateY(20px) translateX(20px);
+    transform: rotate(-11.57deg) translateY(60px) translateX(-30px);
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(3){
-    transform: rotate(7.35deg) translateY(-50px) translateX(30px);
+    transform: rotate(7.35deg) translateY(10px) translateX(-10px);
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(4){
-    transform: rotate(-8.51deg) translateY(20px) translateX(40px);
+    transform: rotate(-8.51deg) translateY(50px) translateX(0px);
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(5){
-    transform: rotate(12.08deg) translateY(-45px) translateX(55px);
+    transform: rotate(12.08deg) translateY(10px) translateX(15px);
 }
 #section_02 .content .content_wrap #design .title .item:nth-child(6){
-    transform: rotate(-8.72deg) translateY(20px) translateX(100px);
+    transform: rotate(-8.72deg) translateY(60px) translateX(15px);
 }
 #section_02 .content .content_wrap #design .title .item img{
     width: 100%;
@@ -986,7 +985,7 @@ html{
     width: 1169px;
     height: 45px;
     position: relative;
-    margin-bottom: 70px;
+    margin: 30px auto 70px;
 }
 #section_02 .content .content_wrap #design #Detailpage .text img{
     width: 100%;
