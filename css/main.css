@@ -524,6 +524,7 @@ html{
 #section_02 .tag .tag_content .middle_02 p:hover,
 #section_02 .tag .tag_content .bottom .contact a:hover{
     color: #333;
+    font-weight: 600;
 }
 
 
