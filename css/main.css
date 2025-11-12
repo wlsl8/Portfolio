@@ -75,7 +75,8 @@ html{
 
 
 .header{
-    width: 1440px;
+    max-width: 1920px;
+    width: calc(100% - 480px);
     margin: 0 auto;
     position: relative;
     z-index: 10;
@@ -83,7 +84,7 @@ html{
 .header .inner{
     width: 1440px;
     line-height: 57px;
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,6 +126,7 @@ html{
 .main{
     max-width: 1920px;
     width: 100%;
+    margin: 0 auto;
 }
 .main .inner{
     width: 100%;
@@ -132,7 +134,7 @@ html{
 }
 .main .inner .main_visual{
     width: 1920px;
-    margin: 0 auto 100px;
+    margin: -80px auto 100px;
     display: flex;
     perspective: 1500px;
 }
@@ -192,6 +194,7 @@ html{
 #section_01 img{
     width: 100%;
     object-fit: cover;
+    opacity: 0.7;
 }
 #section_01 .left{
     position: absolute;
@@ -272,7 +275,6 @@ html{
     align-items: center;
     gap: 25px;
 }
-
 
 #section_01 .right{
     position: absolute;
@@ -364,8 +366,11 @@ html{
 }
 
 
+
+
 #section_02{
-    margin: 450px auto 200px;
+    margin: 450px auto 0;
+    padding-bottom: 300px;
     position: relative;
     width: 100%;
     display: flex;
@@ -525,10 +530,8 @@ html{
 
 
 
-#section_02 .content .content_wrap{
-}
 #section_02 .content_wrap .project{
-    margin-bottom: 250px;
+    margin-bottom: 50px;
 }
 #section_02 .content_wrap .project>.title{
     width: 708px;
@@ -628,8 +631,8 @@ html{
     z-index: 10;
 }
 #section_02 .content_wrap .project .list .list_wrap:nth-child(1) .item .left .fix .fix_img{
-    width: 50px;
-    height: 100px;
+    width: 70px;
+    height: 120px;
 }
 #section_02 .content_wrap .project .list .list_wrap:nth-child(1) .item .left .fix .fix_img img{
     width: 100%;
@@ -747,8 +750,8 @@ html{
     z-index: 10;
 }
 #section_02 .content_wrap .project .list .list_wrap:nth-child(1) .item .right .fix .fix_img{
-    width: 50px;
-    height: 100px;
+    width: 70px;
+    height: 120px;
 }
 #section_02 .content_wrap .project .list .list_wrap:nth-child(1) .item .right .fix .fix_img img{
     width: 100%;
@@ -906,14 +909,14 @@ html{
 #section_02 .content_wrap .project .list .list_wrap .bottom .button a:first-child:hover{
     background-color: #FEC468;
 }
+
 #section_02 .content .content_wrap #design{
     opacity: 0;
     transform: translateY(100px) scale(0.9); /* 더 큰 이동과 살짝 축소 */
-    transition: all 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 스프링 느낌 */
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 스프링 느낌 */
     width: 90%;
     max-width: 1440px;
-    margin: 0 auto;
-    padding: 80px 0;
+    margin: 0 auto ;
 }
 #section_02 .content .content_wrap #design.active {
     opacity: 1;
@@ -973,7 +976,7 @@ html{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 250px;
+    margin-bottom: 350px;
 }
 #section_02 .content .content_wrap #design #Detailpage .text{
     width: 1169px;
@@ -1066,7 +1069,7 @@ html{
     width: 1169px;
     height: 45px;
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 #section_02 .content .content_wrap #design #GraphicDesign .text img{
     width: 100%;
@@ -1082,61 +1085,105 @@ html{
     transform: translate(-50%, -50%);
 }
 
-#section_02 .content .content_wrap #design #GraphicDesign .list{}
+#section_02 .content .content_wrap #design #GraphicDesign .list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 #section_02 .content .content_wrap #design #GraphicDesign .list .item{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 110px;
+    gap: 90px;
+    row-gap: 60px;
 }
 #section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap {
-    width: 330px;
-    height: 420px;
+    position: relative;
+    width: 300px;
+    height: 380px;
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
     z-index: 1;
-}
-#section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap:hover {
-    transform: scale(1.1);
-    z-index: 2;
 }
 #section_02 .content .content_wrap #design #GraphicDesign .list:hover .item .img_wrap {
     filter: brightness(0.7);
 }
 #section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap:hover {
+    transform: scale(1.2);
     filter: brightness(1);
+    z-index: 2;
 }
 #section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
+#section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap .mask {
+    width: 326px;
+    height: 380px;
+    z-index: 2;
+}
+#section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap .poster {
+    width: 300px;
+    height: 380px;
+    z-index: 1;
+}
+#section_02 .content .content_wrap #design #GraphicDesign .list .item .img_wrap:hover .mask {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+#section_02 .content .content_wrap #design #GraphicDesign .list p{
+    font-family: 'Pretendard';
+    font-size: 14px;
+    color: #656565;
+}
+
 
 
 
 #footer{
+    position: fixed;
+    bottom: -100%; /* 초기 화면 아래 숨김 */
+    left: 50%;     /* 화면 가로 중앙 */
+    transform: translateX(-50%); /* 푸터 전체 중앙 정렬 */
+    width: 100%;   /* 전체 화면 폭 */
     max-width: 1920px;
-    width: 100%;
-    position: relative;
+    opacity: 0;
+    transition: bottom 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+    z-index: 999;
+    pointer-events: none; /* 초기에는 클릭 방지 */
+    background-image: url(../img/배경.jpg);
+    padding-top: 1000px;
 }
 #footer::after{
     content: '';
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: #767676;
     position: absolute;
     bottom: 0;
 }
+#footer.show {
+    bottom: 0;     /* 화면 위로 등장 */
+    opacity: 1;
+    pointer-events: auto; /* 등장 시 클릭 가능 */
+}
 #footer .inner{
-    max-width: 1920px;
-    width: calc(100% - 480px);
-    line-height: 57px;
-    margin: 0 auto 100PX;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto; /* 내부 콘텐츠 중앙 정렬 */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     font-family: 'Fraunces 72pt';
     font-size: 17px;
     color: #333;
-    position: relative;
 }
 #footer .inner .logo{
     width: 59px;
@@ -1169,6 +1216,7 @@ html{
 }
 #footer .content{
     position: relative;
+    margin-top: 100px;
 }
 #footer .footer_img{
     max-width: 1920px;
