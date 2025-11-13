@@ -1036,7 +1036,8 @@ html{
     justify-content: center;
     z-index: 1;
     position: absolute;
-    bottom: -14px;
+    bottom: 0;
+    opacity: 0.7;
 
 }
 #section_02 .content .content_wrap #design #Detailpage .list .detail_back .img_wrap{
