@@ -1151,15 +1151,15 @@ html{
 
 #footer{
     position: fixed;
-    bottom: -100%; /* 초기 화면 아래 숨김 */
-    left: 50%;     /* 화면 가로 중앙 */
-    transform: translateX(-50%); /* 푸터 전체 중앙 정렬 */
-    width: 100%;   /* 전체 화면 폭 */
+    bottom: -100%;
+    left: 50%;    
+    transform: translateX(-50%); 
+    width: 100%;  
     max-width: 1920px;
     opacity: 0;
     transition: bottom 1.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
     z-index: 999;
-    pointer-events: none; /* 초기에는 클릭 방지 */
+    pointer-events: none;
     background-image: url(../img/배경.jpg);
     padding-top: 1000px;
 }
@@ -1172,14 +1172,14 @@ html{
     bottom: 0;
 }
 #footer.show {
-    bottom: 0;     /* 화면 위로 등장 */
+    bottom: 0;    
     opacity: 1;
-    pointer-events: auto; /* 등장 시 클릭 가능 */
+    pointer-events: auto; 
 }
 #footer .inner{
     max-width: 1440px;
     width: 100%;
-    margin: 0 auto; /* 내부 콘텐츠 중앙 정렬 */
+    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
