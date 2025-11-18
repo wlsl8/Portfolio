@@ -9,65 +9,83 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-       window.onload = () => {
-    const doorLeft = document.querySelector('.door_left');
-    const doorRight = document.querySelector('.door_right');
-    const section1 = document.querySelector('#section_01');
-    const designSection = document.querySelector('#design');
-    const footer = document.querySelector('#footer');
-    const main = document.querySelector('.main');
+        window.onload = () => {
+            const doorLeft = document.querySelector('.door_left');
+            const doorRight = document.querySelector('.door_right');
+            const section1 = document.querySelector('#section_01');
+            const designSection = document.querySelector('#design');
+            const projectSection = document.querySelector('.project');
+            const footer = document.querySelector('#footer');
+            const main = document.querySelector('.main');
 
-    function handleScroll() {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
+            const middle01 = document.querySelector('.middle_01');
+            const middle02 = document.querySelector('.middle_02');
 
-        // 문 열기
-        if (doorLeft && doorRight) {
-            const maxScroll = 500;
-            const rotateAmount = Math.min(scrollY / maxScroll * 90, 90);
-            doorLeft.style.transform = `rotateY(${-rotateAmount}deg)`;
-            doorRight.style.transform = `rotateY(${rotateAmount}deg)`;
-        }
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
 
-        // 섹션1 등장
-        if (section1) {
-            const triggerPoint1 = section1.offsetTop - windowHeight / 1.2;
-            section1.classList.toggle('active', scrollY > triggerPoint1);
-        }
+                /* ======================================
+                    기존 효과들
+                ====================================== */
 
-        // 디자인 작업물 등장
-        if (designSection) {
-            const sectionTop = designSection.getBoundingClientRect().top + scrollY;
-            const triggerPointDesign = sectionTop - windowHeight + 100;
-            designSection.classList.toggle('active', scrollY > triggerPointDesign);
-        }
+                if (doorLeft && doorRight) {
+                    const maxScroll = 500;
+                    const rotateAmount = Math.min(scrollY / maxScroll * 90, 90);
+                    doorLeft.style.transform = `rotateY(${-rotateAmount}deg)`;
+                    doorRight.style.transform = `rotateY(${rotateAmount}deg)`;
+                }
 
-        // 푸터 메인 위로 등장
-        if (footer && main) {
-            const mainBottom = main.offsetTop + main.offsetHeight;
-            footer.classList.toggle('show', scrollY + windowHeight > mainBottom - 100);
-        }
-    }
+                if (section1) {
+                    const triggerPoint1 = section1.offsetTop - windowHeight / 1.2;
+                    section1.classList.toggle('active', scrollY > triggerPoint1);
+                }
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+                if (designSection) {
+                    const sectionTop = designSection.getBoundingClientRect().top + scrollY;
+                    const triggerPointDesign = sectionTop - windowHeight + 100;
+                    designSection.classList.toggle('active', scrollY > triggerPointDesign);
+                }
 
-    // AOS 초기화
-    AOS.init({
-        duration: 900,
-        easing: 'ease-out-cubic',
-        once: false
-    });
-};
+                if (footer && main) {
+                    const mainBottom = main.offsetTop + main.offsetHeight;
+                    footer.classList.toggle('show', scrollY + windowHeight > mainBottom - 100);
+                }
 
+                /* ======================================
+                    🔥 메뉴 하이라이트 (수정 완료)
+                ====================================== */
 
+                // PROJECT 활성
+                if (projectSection) {
+                    const rect = projectSection.getBoundingClientRect();
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        middle01.classList.add('active');
+                        middle02.classList.remove('active');
+                    }
+                }
 
+                // DESIGN 활성
+                if (designSection) {
+                    const rect = designSection.getBoundingClientRect();
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        middle02.classList.add('active');
+                        middle01.classList.remove('active');
+                    }
+                }
+            }
 
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
 
-
-
-
+            AOS.init({
+                duration: 900,
+                easing: 'ease-out-cubic',
+                once: false
+            });
+        };
     </script>
+
 </head>
 
 <body>
@@ -108,23 +126,23 @@
             <div class="inner">
                 <section class="main_visual">
                     <div class="door_left">
-                        <img src="img/doorleft.png" alt="왼쪽문">
+                        <img src="img/doorleft.webp" alt="왼쪽문">
                         <strong>WEB PUBLISHER</strong>
                     </div><!-- .door_left -->
                     <div class="door_right">
-                        <img src="img/doorleft.png" alt="왼쪽문">
+                        <img src="img/doorrihgt.webp" alt="왼쪽문">
                         <strong>PORTFOLIO</strong>
                     </div><!-- .door_right -->
                 </section><!-- .main_visual -->
 
 
                 <section id="section_01">
-                    <img src="img/about-img.png" alt="about배경이미지">
+                    <img src="img/about-img.webp" alt="about배경이미지">
                     <div class="left">
                         <h3>ABOUT</h3>
                         <div class="info">
                             <div class="img_wrap">
-                                <img src="img/증명사진.JPG" alt="증명사진">
+                                <img src="img/증명사진.webp" alt="증명사진">
                             </div><!-- .img_wrap -->
                             <div class="text">
                                 <div class="name">
@@ -148,6 +166,10 @@
                         <div class="top">
                             <h3>EDUCATION</h3>
                             <div class="text">
+                                <div class="item">
+                                    <p>2025. 07 - 2025. 11</p>
+                                    <b>그린컴퓨터아카데미<br>UI/UX 반응형 웹디자인 & 웹퍼블리셔 양성과정 수료</b>
+                                </div><!-- .item -->
                                 <div class="item">
                                     <p>2020. 03 - 2025. 02</p>
                                     <b>동서대학교 패션디자인학과 졸업</b>
@@ -186,28 +208,28 @@
                             <div class="list">
                                 <div class="item">
                                     <div class="img_wrap">
-                                        <img src="img/html.png" alt="htmlicon">
+                                        <img src="img/html.webp" alt="htmlicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/css.png" alt="cssicon">
+                                        <img src="img/css.webp" alt="cssicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/js.png" alt="jsicon">
+                                        <img src="img/js.webp" alt="jsicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/jquery.png" alt="jQueryicon">
+                                        <img src="img/jquery.webp" alt="jQueryicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/photoshop.png" alt="photoshopicon">
+                                        <img src="img/photoshop.webp" alt="photoshopicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/illustrator.png" alt="illustratoricon">
+                                        <img src="img/illustrator.webp" alt="illustratoricon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/figma.png" alt="figmaicon">
+                                        <img src="img/figma.webp" alt="figmaicon">
                                     </div><!-- .img_wrap -->
                                     <div class="img_wrap">
-                                        <img src="img/excel.png" alt="excelicon">
+                                        <img src="img/excel.webp" alt="excelicon">
                                     </div><!-- .img_wrap -->
                                 </div><!-- .item -->
                             </div><!-- .list -->
@@ -273,37 +295,37 @@
                             <section class="project">
                                 <div class="title">
                                     <div class="item">
-                                        <img src="img/project-swatch-1.png" alt="project-swatch-1">
+                                        <img src="img/project-swatch-1.webp" alt="project-swatch-1">
                                         <b>P</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-2.png" alt="project-swatch-2">
+                                        <img src="img/project-swatch-2.webp" alt="project-swatch-2">
                                         <b>R</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-3.png" alt="project-swatch-3">
+                                        <img src="img/project-swatch-3.webp" alt="project-swatch-3">
                                         <b>O</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-4.png" alt="project-swatch-4">
+                                        <img src="img/project-swatch-4.webp" alt="project-swatch-4">
                                         <b>J</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-5.png" alt="project-swatch-5">
+                                        <img src="img/project-swatch-5.webp" alt="project-swatch-5">
                                         <b>E</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-6.png" alt="project-swatch-6">
+                                        <img src="img/project-swatch-6.webp" alt="project-swatch-6">
                                         <b>C</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/project-swatch-7.png" alt="project-swatch-7">
+                                        <img src="img/project-swatch-7.webp" alt="project-swatch-7">
                                         <b>T</b>
                                     </div><!-- .item -->
                                 </div><!-- .title -->
 
                                 <div class="img_wrap">
-                                    <img src="img/줄.png" alt="줄이미지">
+                                    <img src="img/줄.webp" alt="줄이미지">
                                 </div><!-- .img_wrap -->
 
                                 <div class="list">
@@ -313,11 +335,11 @@
                                             <div class="left">
                                                 <div class="fix">
                                                     <div class="fix_img">
-                                                        <img src="img/집게.png" alt="집게이미지">
+                                                        <img src="img/집게.webp" alt="집게이미지">
                                                     </div><!-- .fix_img -->
                                                 </div><!-- .fix -->
                                                 <div class="img_wrap">
-                                                    <img src="img/SUNLOVE.png" alt="SUNLOVEimg">
+                                                    <img src="img/SUNLOVE.webp" alt="SUNLOVEimg">
                                                 </div><!-- .img_wrap -->
                                                 <div class="text">
                                                     <p>마우스를 올리면 이미지가 움직입니다.</p>
@@ -327,7 +349,7 @@
                                             <div class="right">
                                                 <div class="fix">
                                                     <div class="fix_img">
-                                                        <img src="img/집게.png" alt="집게이미지">
+                                                        <img src="img/집게.webp" alt="집게이미지">
                                                     </div><!-- .fix_img -->
                                                 </div><!-- .fix -->
                                                 <div class="box">
@@ -362,10 +384,12 @@
                                             </div><!-- .right -->
                                         </div><!-- .item -->
                                         <div class="bottom">
-                                            <img src="img/연결줄.png" alt="연결줄이미지">
+                                            <img src="img/연결줄.webp" alt="연결줄이미지">
                                             <div class="button">
-                                                <a href="https://wlsl8.github.io/SUNLOVE/" target="_blank"><b>Web Site</b></a>
-                                                <a href="https://www.figma.com/design/qgKq3IvkeR8so8HwFW1n0K/Sunlove?t=1hUvLsipN1U2YL2h-1" target="_blank"><b>Figma</b></a>
+                                                <a href="https://wlsl8.github.io/SUNLOVE/" target="_blank"><b>Web
+                                                        Site</b></a>
+                                                <a href="https://www.figma.com/design/qgKq3IvkeR8so8HwFW1n0K/Sunlove?t=1hUvLsipN1U2YL2h-1"
+                                                    target="_blank"><b>Figma</b></a>
                                                 <a href="#"><b>Process</b></a>
                                             </div><!-- .button -->
                                         </div><!-- .bottom -->
@@ -376,7 +400,7 @@
                                             <div id="GENTLEMONSTER"></div>
                                             <div class="left">
                                                 <div class="img_wrap">
-                                                    <img src="img/GENTLEMONSTER.png" alt="GENTLE MONSTERimg">
+                                                    <img src="img/GENTLEMONSTER.webp" alt="GENTLE MONSTERimg">
                                                 </div><!-- .img_wrap -->
                                                 <div class="text">
                                                     <p>마우스를 올리면 이미지가 움직입니다.</p>
@@ -416,10 +440,12 @@
                                             </div><!-- .right -->
                                         </div><!-- .item -->
                                         <div class="bottom">
-                                            <img src="img/연결줄.png" alt="연결줄이미지">
+                                            <img src="img/연결줄.webp" alt="연결줄이미지">
                                             <div class="button">
-                                                <a href="https://wlsl8.github.io/GENTLE-MONSTER/" target="_blank"><b>Web Site</b></a>
-                                                <a href="https://www.figma.com/design/KZGP9zrp0dxUTNMLKMBx7c/Sunlove?node-id=0-1&t=x114HleyMaTn6dz3-1" target="_blank"><b>Figma</b></a>
+                                                <a href="https://wlsl8.github.io/GENTLE-MONSTER/" target="_blank"><b>Web
+                                                        Site</b></a>
+                                                <a href="https://www.figma.com/design/KZGP9zrp0dxUTNMLKMBx7c/Sunlove?node-id=0-1&t=x114HleyMaTn6dz3-1"
+                                                    target="_blank"><b>Figma</b></a>
                                                 <a href="#"><b>Process</b></a>
                                             </div><!-- .button -->
                                         </div><!-- .bottom -->
@@ -431,13 +457,13 @@
                                             <div class="left">
                                                 <div class="mobile">
                                                     <div class="img_wrap">
-                                                        <img src="img/KREAM-1.png" alt="KREAM-1">
+                                                        <img src="img/KREAM-1.webp" alt="KREAM-1">
                                                     </div><!-- .img_wrap -->
                                                     <div class="img_wrap">
-                                                        <img src="img/KREAM-2.png" alt="KREAM-2">
+                                                        <img src="img/KREAM-2.webp" alt="KREAM-2">
                                                     </div><!-- .img_wrap -->
                                                     <div class="img_wrap">
-                                                        <img src="img/KREAM-3.png" alt="KREAM-3">
+                                                        <img src="img/KREAM-3.webp" alt="KREAM-3">
                                                     </div><!-- .img_wrap -->
                                                 </div><!-- .mobile -->
                                                 <div class="text">
@@ -478,11 +504,12 @@
                                             </div><!-- .right -->
                                         </div><!-- .item -->
                                         <div class="bottom">
-                                            <img src="img/연결줄.png" alt="연결줄이미지">
+                                            <img src="img/연결줄.webp" alt="연결줄이미지">
                                             <div class="button">
-                                                <a href="https://wlsl8.github.io/KREAM/" target="_blank"><b>Web Site</b></a>
-                                                <a
-                                                    href="https://www.figma.com/design/h4DtK15AKWqqwtOUWJTkOA/KREAM?t=1hUvLsipN1U2YL2h-1" target="_blank"><b>Figma</b></a>
+                                                <a href="https://wlsl8.github.io/KREAM/" target="_blank"><b>Web
+                                                        Site</b></a>
+                                                <a href="https://www.figma.com/design/h4DtK15AKWqqwtOUWJTkOA/KREAM?t=1hUvLsipN1U2YL2h-1"
+                                                    target="_blank"><b>Figma</b></a>
                                                 <a href="#"><b>Process</b></a>
                                             </div><!-- .button -->
                                         </div><!-- .bottom -->
@@ -493,7 +520,7 @@
                                             <div id="LANEIGE"></div>
                                             <div class="left">
                                                 <div class="img_wrap">
-                                                    <img src="img/LANEIGE.png" alt="LANEIGEimg">
+                                                    <img src="img/LANEIGE.webp" alt="LANEIGEimg">
                                                 </div><!-- .img_wrap -->
                                                 <div class="text">
                                                     <p>마우스를 올리면 이미지가 움직입니다.</p>
@@ -533,11 +560,12 @@
                                             </div><!-- .right -->
                                         </div><!-- .item -->
                                         <div class="bottom">
-                                            <img src="img/연결줄.png" alt="연결줄이미지">
+                                            <img src="img/연결줄.webp" alt="연결줄이미지">
                                             <div class="button">
-                                                <a href="https://wlsl8.github.io/LANEIGE/" target="_blank"><b>Web Site</b></a>
-                                                <a
-                                                    href="https://www.figma.com/design/jrAYAi23HbnjRSnmbKnhYr/LANEIGE?t=1hUvLsipN1U2YL2h-1" target="_blank"><b>Figma</b></a>
+                                                <a href="https://wlsl8.github.io/LANEIGE/" target="_blank"><b>Web
+                                                        Site</b></a>
+                                                <a href="https://www.figma.com/design/jrAYAi23HbnjRSnmbKnhYr/LANEIGE?t=1hUvLsipN1U2YL2h-1"
+                                                    target="_blank"><b>Figma</b></a>
                                                 <a href="#"><b>Process</b></a>
                                             </div><!-- .button -->
                                         </div><!-- .bottom -->
@@ -549,16 +577,16 @@
                                             <div class="left">
                                                 <div class="mobile">
                                                     <div class="img_wrap">
-                                                        <img src="img/MUSINSA-1.png" alt="MUSINSA-1">
+                                                        <img src="img/MUSINSA-1.webp" alt="MUSINSA-1">
                                                     </div><!-- .img_wrap -->
                                                     <div class="img_wrap">
-                                                        <img src="img/MUSINSA-2.png" alt="MUSINSA-2">
+                                                        <img src="img/MUSINSA-2.webp" alt="MUSINSA-2">
                                                     </div><!-- .img_wrap -->
                                                     <div class="img_wrap">
-                                                        <img src="img/MUSINSA-3.png" alt="MUSINSA-3">
+                                                        <img src="img/MUSINSA-3.webp" alt="MUSINSA-3">
                                                     </div><!-- .img_wrap -->
                                                     <div class="img_wrap">
-                                                        <img src="img/MUSINSA-4.png" alt="MUSINSA-3">
+                                                        <img src="img/MUSINSA-4.webp" alt="MUSINSA-3">
                                                     </div><!-- .img_wrap -->
                                                 </div><!-- .mobile -->
                                             </div><!-- .left -->
@@ -598,7 +626,7 @@
                                             </div><!-- .right -->
                                         </div><!-- .item -->
                                         <div class="bottom">
-                                            <img src="img/연결줄last.png" alt="연결줄이미지">
+                                            <img src="img/연결줄last.webp" alt="연결줄이미지">
                                             <div class="button">
                                                 <a href="#"><b>Web Site</b></a>
                                                 <a href="#"><b>Process</b></a>
@@ -611,34 +639,34 @@
                             <section id="design">
                                 <div class="title">
                                     <div class="item">
-                                        <img src="img/design-swatch-1.png" alt="design-swatch-1">
+                                        <img src="img/design-swatch-1.webp" alt="design-swatch-1">
                                         <b>D</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/design-swatch-2.png" alt="design-swatch-2">
+                                        <img src="img/design-swatch-2.webp" alt="design-swatch-2">
                                         <b>E</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/design-swatch-3.png" alt="design-swatch-3">
+                                        <img src="img/design-swatch-3.webp" alt="design-swatch-3">
                                         <b>S</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/design-swatch-4.png" alt="design-swatch-4">
+                                        <img src="img/design-swatch-4.webp" alt="design-swatch-4">
                                         <b>I</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/design-swatch-5.png" alt="design-swatch-5">
+                                        <img src="img/design-swatch-5.webp" alt="design-swatch-5">
                                         <b>G</b>
                                     </div><!-- .item -->
                                     <div class="item">
-                                        <img src="img/design-swatch-6.png" alt="design-swatch-6">
+                                        <img src="img/design-swatch-6.webp" alt="design-swatch-6">
                                         <b>N</b>
                                     </div><!-- .item -->
                                 </div><!-- .title -->
 
                                 <div id="Detailpage">
                                     <div class="text">
-                                        <img src="img/design-swatch-line.png" alt="detailpage부제목배경">
+                                        <img src="img/design-swatch-line.webp" alt="detailpage부제목배경">
                                         <strong>Detail page</strong>
                                     </div><!-- .text -->
 
@@ -656,10 +684,10 @@
                                         </div><!-- .detail_imgp -->
                                         <div class="detail_back">
                                             <div class="img_wrap">
-                                                <img src="img/detail-back.png" alt="상세페이지배경">
+                                                <img src="img/detail-back.webp" alt="상세페이지배경">
                                             </div><!-- .img_wrap -->
                                             <div class="img_wrap">
-                                                <img src="img/detail-back.png" alt="상세페이지배경">
+                                                <img src="img/detail-back.webp" alt="상세페이지배경">
                                             </div><!-- .img_wrap -->
                                         </div><!-- .detail_back -->
                                     </div><!-- .list -->
@@ -670,35 +698,42 @@
 
                                 <div id="GraphicDesign">
                                     <div class="text">
-                                        <img src="img/design-swatch-line.png" alt="detailpage부제목배경">
+                                        <img src="img/design-swatch-line.webp" alt="detailpage부제목배경">
                                         <strong>Graphic Design</strong>
                                     </div><!-- .text -->
 
                                     <div class="list">
                                         <div class="item">
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-1.png" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-1.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-2.png" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-2.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-3.png" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-3.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-5.png" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-5.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-4.png" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-4.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                             <div class="img_wrap">
-                                                <img src="img/Graphic Design-mask.png" alt="비닐이미지" class="mask">
-                                                <img src="img/Graphic Design-6.jpg" alt="그래픽디자인-1" class="poster">
+                                                <img src="img/photoshop.webp" alt="포토샵아이콘">
+                                                <img src="img/illustrator.webp" alt="일러스트 아이콘">
+                                                <img src="img/Graphic Design-mask.webp" alt="비닐이미지" class="mask">
+                                                <img src="img/Graphic Design-6.webp" alt="그래픽디자인-1" class="poster">
                                             </div>
                                         </div><!-- .item -->
                                         <p>마우스를 올리면 이미지가 확대됩니다.</p>
@@ -742,7 +777,7 @@
             </div><!-- .inner -->
             <div class="content">
                 <div class="footer_img">
-                    <img src="img/footer-img.png" alt="푸터이미지">
+                    <img src="img/footer-img.webp" alt="푸터이미지">
                 </div><!-- .footer_img -->
                 <div class="item">
                     <div class="text">
@@ -751,17 +786,17 @@
                         <div class="icon">
                             <div class="img_wrap">
                                 <a href="tel:010-8520-8069">
-                                    <img src="img/call.png" alt="전화기아이콘">
+                                    <img src="img/call.webp" alt="전화기아이콘">
                                 </a>
                             </div><!-- .img_wrap -->
                             <div class="img_wrap">
                                 <a href="mailto:wldms2037@naver.com">
-                                    <img src="img/email.png" alt="이메일아이콘">
+                                    <img src="img/email.webp" alt="이메일아이콘">
                                 </a>
                             </div><!-- .img_wrap -->
                             <div class="img_wrap">
                                 <a href="#">
-                                    <img src="img/kakaotalk.png" alt="카카오톡아이콘">
+                                    <img src="img/kakaotalk.webp" alt="카카오톡아이콘">
                                 </a>
                             </div><!-- .img_wrap -->
                         </div><!-- .icon -->
