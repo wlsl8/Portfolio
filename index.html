@@ -25,10 +25,6 @@
                 const scrollY = window.scrollY;
                 const windowHeight = window.innerHeight;
 
-                /* ======================================
-                    기존 효과들
-                ====================================== */
-
                 if (doorLeft && doorRight) {
                     const maxScroll = 500;
                     const rotateAmount = Math.min(scrollY / maxScroll * 90, 90);
@@ -52,11 +48,7 @@
                     footer.classList.toggle('show', scrollY + windowHeight > mainBottom - 100);
                 }
 
-                /* ======================================
-                    🔥 메뉴 하이라이트 (수정 완료)
-                ====================================== */
 
-                // PROJECT 활성
                 if (projectSection) {
                     const rect = projectSection.getBoundingClientRect();
                     if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
@@ -65,7 +57,6 @@
                     }
                 }
 
-                // DESIGN 활성
                 if (designSection) {
                     const rect = designSection.getBoundingClientRect();
                     if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
@@ -386,8 +377,7 @@
                                         <div class="bottom">
                                             <img src="img/연결줄.webp" alt="연결줄이미지">
                                             <div class="button">
-                                                <a href="https://www.figma.com/design/KZGP9zrp0dxUTNMLKMBx7c/Sunlove?node-id=0-1&t=4HAiRVj7bK2Y5xXk-1" target="_blank"><b>Web
-                                                        Site</b></a>
+                                                <a href="https://wlsl8.github.io/SUNLOVE/" target="_blank"><b>Web Site</b></a>
                                                 <a href="https://www.figma.com/design/qgKq3IvkeR8so8HwFW1n0K/Sunlove?t=1hUvLsipN1U2YL2h-1"
                                                     target="_blank"><b>Figma</b></a>
                                                 <a href="process/SUNLOVE_process.pdf" target="_blank"><b>Process</b></a>
@@ -674,10 +664,10 @@
                                                 <img src="img/detailpage-img-1.png" alt="상세페이지-1">
                                             </div><!-- .img_wrap -->
                                             <div class="img_wrap">
-                                                <img src="img/detailpage-img-1.png" alt="상세페이지-1">
+                                                <img src="img/detailpage-img-2.png" alt="상세페이지-2">
                                             </div><!-- .img_wrap -->
                                             <div class="img_wrap">
-                                                <img src="img/detailpage-img-1.png" alt="상세페이지-1">
+                                                <img src="img/detailpage-img-3.png" alt="상세페이지-3">
                                             </div><!-- .img_wrap -->
                                         </div><!-- .detail_imgp -->
                                         <div class="detail_back">
