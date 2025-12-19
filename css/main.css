@@ -211,7 +211,6 @@ html{
     color: #333;
     margin-bottom: 80px;
 }
-#section_01 .left .info{}
 #section_01 .left .info .img_wrap{
     width: 250px;
     height: 340px;
@@ -604,7 +603,6 @@ html{
     object-fit: cover;
 }
 
-#section_02 .content_wrap .project .list{}
 #section_02 .content_wrap .project .list .list_wrap{
     display: flex;
     flex-direction: column;
