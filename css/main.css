@@ -1032,9 +1032,17 @@ html{
     transform: translateY(0);
     transition: transform 2s ease-in-out;
 }
-#section_02 .content .content_wrap #design #Detailpage .list .detail_img .img_wrap:hover img{
+#section_02 .content .content_wrap #design #Detailpage .list .detail_img .img_wrap:nth-child(1):hover img{
     transform: translateY(-4340px);
     transition: transform 4s ease-in-out;
+}
+#section_02 .content .content_wrap #design #Detailpage .list .detail_img .img_wrap:nth-child(2):hover img{
+    transform: translateY(-3000px);
+    transition: transform 4s ease-in-out;
+}
+#section_02 .content .content_wrap #design #Detailpage .list .detail_img .img_wrap:nth-child(3):hover img{
+    transform: translateY(-5550px);
+    transition: transform 5s ease-in-out;
 }
 #section_02 .content .content_wrap #design #Detailpage .list .detail_back{
     display: flex;
