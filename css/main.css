@@ -282,7 +282,7 @@ html{
     right: 20%;
     display: flex;
     flex-direction: column;
-    gap: 80px;
+    gap: 90px;
     align-items: flex-start;
 }
 #section_01 .right .top,
@@ -291,7 +291,7 @@ html{
     flex-direction: column;
     align-items: flex-start;
     gap: 25px;
-    margin-bottom: 5px;
+    /* margin-bottom: 20px; */
 }
 #section_01 .right .top h3,
 #section_01 .right .middle h3,
@@ -306,7 +306,7 @@ html{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 10px;
 }
 #section_01 .right .top .text .item{
     display: flex;
@@ -353,7 +353,7 @@ html{
     margin-top: 30px;
 }
 #section_01 .right .bottom .list{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 #section_01 .right .bottom .list .item{
     display: flex;
