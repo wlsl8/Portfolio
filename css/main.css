@@ -197,7 +197,7 @@ html{
 }
 #section_01 .left{
     position: absolute;
-    top: 13%;
+    top: 12%;
     left: 16%;
     display: flex;
     flex-direction: column;
@@ -215,7 +215,7 @@ html{
     height: 320px;
     background-color: #9E9E9E;
     border-radius: 23px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     border: 3px solid rgba(255, 255, 255, 0.8);
 }
 #section_01 .left .info .img_wrap img{
@@ -251,7 +251,7 @@ html{
     font-size: 16px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 11px;
+    margin-bottom: 8px;
 }
 #section_01 .left .info .text .call{
     display: flex;
@@ -278,8 +278,8 @@ html{
 
 #section_01 .right{
     position: absolute;
-    top: 12%;
-    right: 22%;
+    top: 11%;
+    right: 20%;
     display: flex;
     flex-direction: column;
     gap: 80px;
